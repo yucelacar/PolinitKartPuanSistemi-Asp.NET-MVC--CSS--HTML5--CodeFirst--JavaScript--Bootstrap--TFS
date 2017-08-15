@@ -1,0 +1,11 @@
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\bin\PolinitKartSistemi.dll.config
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\bin\PolinitKartSistemi.dll
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\bin\PolinitKartSistemi.pdb
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\bin\EntityFramework.dll
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\bin\EntityFramework.SqlServer.dll
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\bin\EntityFramework.xml
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\bin\EntityFramework.SqlServer.xml
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\obj\Debug\PolinitKartSistemi.csprojResolveAssemblyReference.cache
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\obj\Debug\PolinitKartSistemi.dll
+C:\Users\Acar\Desktop\bilge adam ders\PolinitKartSistemi\PolinitKartSistemi\obj\Debug\PolinitKartSistemi.pdb

@@ -1,0 +1,145 @@
+﻿@model PolinitKartSistemi.Areas.Musteri.Models.MusteriIletisimViewModel
+@{
+    Layout = "~/Areas/Musteri/Views/Shared/_MusteriLayout.cshtml";
+}
+
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/jquery-3.2.1.min.js"></script>
+<script src="~/js/jquery.maskedinput.min.js"></script>
+
+@section Menu{
+
+    <ul class="sidebar-menu">
+        <li>
+            @Html.ActionLink("Müşteri Ekle", "MusteriEkle", "Musteri", new { veri = ViewBag.ID }, null)
+        </li>
+
+        <li>
+            @Html.ActionLink("Puan Topla", "PuanTopla", "Musteri", new { veri = ViewBag.ID }, null)
+        </li>
+
+    </ul>
+}
+
+
+
+
+
+
+@using (Html.BeginForm("MusteriEkle", "Musteri", FormMethod.Post, new { @class = "form-group" }))
+{
+    <fieldset>
+        <div class="form-group" style="margin-top:40px">
+
+            <div class="col-sm-2 control-label">
+                <label>Kart No</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px">
+
+                @Html.TextBoxFor(model => model.KartNo, new { @class = "form-control ", placeholder = "Kart No", required = "required", id="txtMusteriKartNo" })
+            </div>
+
+            <div class="col-sm-2 control-label">
+                <label>Tc Kimlik No</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px">
+                @Html.ValidationMessageFor(model => model.TcKimlikNo, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.TcKimlikNo, new { @class = "form-control ", placeholder = "TC Kimlik No", id = "txtTC", required = "required"})
+            </div>
+
+            <div class="col-sm-2 control-label">
+                <label>Musteri Adı</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px">
+                @Html.ValidationMessageFor(model => model.MusteriAdi, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.MusteriAdi, new { @class = "form-control", placeholder = "Müşteri Adı", required = "required", maxlength = "30",type="text" })
+            </div>
+
+            <div class="col-sm-2 control-label">
+                <label>Musteri Soyadı</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px">
+                @Html.ValidationMessageFor(model => model.MusteriSoyadi, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.MusteriSoyadi, new { @class = "form-control", placeholder = "Müşteri Soyadı", required = "required", maxlength = "30"})
+            </div>
+
+            <div class="col-sm-2 control-label">
+                <label>Doğum Tarihi</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px">
+                @Html.ValidationMessageFor(model => model.DogumTarihi, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.DogumTarihi, new { @class = "form-control", placeholder = "Doğum Tarihi", required = "required", id = "dgmTarihi" })
+            </div>
+
+            <div class="col-sm-2 control-label">
+                <label>Cinsiyet</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px" required="required">
+                <form class="">
+                    @Html.RadioButtonFor(model => model.Cinsiyet, "true") Kadın
+                    @Html.RadioButtonFor(model => model.Cinsiyet, "false")Erkek
+                </form>
+            </div>
+
+            <div class="col-sm-2 control-label">
+                <label>Telefon</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px" required="required">
+                @Html.TextBoxFor(model => model.Telefon, new { @class = "form-control", placeholder = "5553332211", required = "required", id = "txtTel" })
+            </div>
+
+            <div class="col-sm-2 control-label">
+                <label>Adres</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px" required="required">
+                @Html.TextBoxFor(model => model.Adres, new { @class = "form-control", placeholder = "Adres", required = "required" })
+            </div>
+
+            <div class="col-sm-2 control-label">
+                <label>Email</label>
+            </div>
+            <div class="col-sm-10" style="margin-bottom:20px" required="required">
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "ornek@polinit.com", required = "required", id = "email", maxlength = "50", type = "email" })
+            </div>
+
+
+            <label class="col-sm-2 control-label">Şehir Adı</label>
+            <div class="col-sm-10" style="margin-bottom:20px">
+                @Html.TextBoxFor(model => model.SehirAdi, new { @class = "form-control", placeholder = "İstanbul", required = "required" })
+            </div>
+
+            <label class="col-sm-2 control-label">İlçe Adı</label>
+            <div class="col-sm-10" style="margin-bottom:20px">
+                @Html.TextBoxFor(model => model.IlceAdi, new { @class = "form-control", placeholder = "Beşiktaş", required = "required" })
+            </div>
+
+
+            <div class="col-sm-10 col-sm-offset-2">
+                <input class="form-control btn btn-primary" type="submit" value="Kaydet" />
+            </div>
+        </div>
+    </fieldset>
+    if (ViewBag.Sonuc != null)
+    {
+        <div class="alert alert-@ViewBag.Sonuc">
+                <span class="@ViewBag.Icon"></span>
+                @ViewBag.Mesaj
+
+            </div>
+        @*<script>
+            $(document).ready(function () {
+                $("#submitbutton").on("click", function () {
+                    alert( @ViewBag.Mesaj);
+                });
+            });
+        </script>*@
+    }
+}
+
+<script type="text/javascript">
+    $("#txtTel").mask("(999) 999-9999");
+    $("#dgmTarihi").mask("99/99/9999");
+    $("#txtTC").mask("99999999999");
+    $("#txtMusteriKartNo").mask("9999999999999999");
+   
+</script>

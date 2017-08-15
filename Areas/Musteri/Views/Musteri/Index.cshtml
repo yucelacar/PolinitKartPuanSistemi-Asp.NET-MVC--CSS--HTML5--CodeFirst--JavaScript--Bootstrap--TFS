@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Musteri/Views/Shared/_MusteriLayout.cshtml";
+}
+
+<marquee direction=left style="color:black;"><h1>Polinit Puan Sistemine Hoş Geldiniz.</h1></marquee>
+@section Menu{
+    
+    <ul class="sidebar-menu">
+    <li>
+        @Html.ActionLink("Müşteri Ekle", "MusteriEkle", "Musteri", new { veri=ViewBag.ID },null)
+    </li>
+
+    <li>
+        @Html.ActionLink("Puan Topla", "PuanTopla", "Musteri", new { veri = ViewBag.ID }, null)
+    </li>
+
+</ul>
+    }
+

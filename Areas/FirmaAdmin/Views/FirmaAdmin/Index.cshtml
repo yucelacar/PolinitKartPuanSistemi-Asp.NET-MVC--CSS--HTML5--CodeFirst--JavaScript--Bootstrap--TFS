@@ -1,0 +1,19 @@
+﻿
+@{
+    Layout = "~/Areas/FirmaAdmin/Views/Shared/_FirmaAdminLayoutPage.cshtml";
+}
+
+<marquee direction=left style="color:black;"><h1>Polinit Puan Sistemine Hoş Geldiniz.</h1></marquee>
+@section Menu{
+
+    <ul class="sidebar-menu">
+        <li>
+            @Html.ActionLink("Kasiyer Tanımla", "KasiyerTanimla", "FirmaAdmin", new { veri = ViewBag.ID }, null)
+        </li>
+
+        <li>
+            @Html.ActionLink("Puan Güncelle", "PuanGuncelle", "FirmaAdmin", new { veri = ViewBag.ID }, null)
+        </li>
+    </ul>
+}
+

@@ -1,0 +1,48 @@
+﻿@model PolinitKartSistemi.Models.Kasiyer
+@{
+    Layout = "~/Areas/FirmaAdmin/Views/Shared/_FirmaAdminLayoutPage.cshtml";
+}
+@section menu{
+    <ul class="sidebar-menu">
+        <li>
+            @Html.ActionLink("Kasiyer Tanımla", "KasiyerTanimla", "FirmaAdmin", new { veri = ViewBag.ID }, null)
+        </li>
+        <li>
+            @Html.ActionLink("Puan Güncelle", "PuanGuncelle", "FirmaAdmin", new { veri = ViewBag.ID }, null)
+        </li>
+
+    </ul>
+}
+@using (Html.BeginForm("KasiyerTanimla", "FirmaAdmin", FormMethod.Post, new { @class = "form-group" }))
+{
+    <div class="form-group" style="margin-top:200px">
+        <label class="col-sm-2 control-label">Kasiyerin Kullanıcı Adı</label>
+        <div class="col-sm-10" style="margin-bottom:20px">
+            @Html.TextBoxFor(model => model.KullaniciAdi, new { @class = "form-control", placeholder = "Kasiyer Kullanıcı Adı" })
+            
+        </div>
+        <label class="col-sm-2 control-label">Kasiyerin Şifresi</label>
+        <div class="col-sm-10" style="margin-bottom:20px">
+            @Html.TextBoxFor(model => model.Sifre, new { @class = "form-control", placeholder = "Kasiyer Şifre" })
+
+            @Html.HiddenFor(model => model.FirmaID)
+        </div>
+        <div class="col-sm-10 col-sm-offset-2">
+
+            <input class="form-control btn btn-primary" type="submit" value="Kasiyeri Kaydet" )" />
+            @if (ViewBag.Sonuc != null)
+            {
+            <div class="alert alert-@ViewBag.Sonuc">
+                <span class="@ViewBag.Icon"></span>
+                @ViewBag.Mesaj
+
+            </div>
+            }
+        </div>        
+    </div>
+    
+        
+    
+    
+}
+

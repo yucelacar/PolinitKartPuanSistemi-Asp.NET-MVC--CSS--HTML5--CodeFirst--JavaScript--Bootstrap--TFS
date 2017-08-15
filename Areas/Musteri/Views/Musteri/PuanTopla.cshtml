@@ -1,0 +1,65 @@
+﻿
+@model PolinitKartSistemi.Areas.Musteri.Models.KartTutarPuanViewModel
+@{
+   
+    Layout = "~/Areas/Musteri/Views/Shared/_MusteriLayout.cshtml";
+}
+<script src="~/js/jquery.min.js"></script>
+<script src="~/js/jquery-3.2.1.min.js"></script>
+<script src="~/js/jquery.maskedinput.min.js"></script>
+<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    .form-control {
+        width: 500px;
+    }
+</style>
+@section Menu{
+
+    <ul class="sidebar-menu">
+        <li>
+            @Html.ActionLink("Müşteri Ekle", "MusteriEkle", "Musteri", new { veri = ViewBag.ID }, null)
+        </li>
+
+        <li>
+            @Html.ActionLink("Puan Topla", "PuanTopla", "Musteri", new { veri = ViewBag.ID }, null)
+        </li>
+
+    </ul>
+}
+
+
+@using (Html.BeginForm("PuanTopla", "Musteri", FormMethod.Post, new { @class = "form-group" }))
+{
+    <div class="form-group" style="margin-top:200px">
+        <label class="col-sm-2 control-label">Müşteri Kart No</label>
+        <div class="col-sm-10" style="margin-bottom:20px">
+            @Html.TextBoxFor(model => model.KartNo, new { @class = "form-control", placeholder = "Müşteri No",id="txtMusteriKartNo" })
+            @*<input type="text" class="form-control" placeholder="Müşteri Kart No">*@
+        </div>
+        <label class="col-sm-2 control-label">Tutar</label>
+        <div class="col-sm-10" style="margin-bottom:20px">
+         
+            @Html.TextBoxFor(x=>x.AlisverisTutari, new { @class = "form-control", placeholder = "Alışveriş Tutarı"})
+
+        </div>
+
+        <div class="col-sm-4 col-sm-offset-2">
+          
+            <input class="form-control btn btn-primary" type="submit" value="Puan Topla" )" />
+        </div>    
+        @if (ViewBag.Sonuc != null)
+        {
+            <div class="alert alert-@ViewBag.Sonuc">
+                <span class="@ViewBag.Icon"></span>
+                @ViewBag.Mesaj
+
+            </div>
+        }    
+    </div>
+    
+}
+
+<script type="text/javascript">
+    $("#txtMusteriKartNo").mask("9999999999999999");
+</script>

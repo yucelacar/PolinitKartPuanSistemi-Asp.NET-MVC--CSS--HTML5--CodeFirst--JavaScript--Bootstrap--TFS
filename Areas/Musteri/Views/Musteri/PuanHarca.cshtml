@@ -1,0 +1,65 @@
+﻿@model PolinitKartSistemi.Areas.Musteri.Models.KartTutarPuanViewModel
+@{
+    Layout = "~/Areas/Musteri/Views/Shared/_MusteriLayout.cshtml";
+}
+
+<style>
+    .form-control {
+        width: 500px;
+    }
+</style>
+@section Menu{
+
+    <ul class="sidebar-menu">
+        <li>
+            @Html.ActionLink("Müşteri Ekle", "MusteriEkle", "Musteri", new { veri = ViewBag.ID }, null)
+        </li>
+
+        <li>
+            @Html.ActionLink("Puan Topla", "PuanTopla", "Musteri", new { veri = ViewBag.ID }, null)
+        </li>
+
+    </ul>
+}
+
+
+@using (Html.BeginForm("PuanHarca", "Musteri", FormMethod.Post, new { @class = "form-group" }))
+{
+    <div class="form-group" style="margin-top:200px">
+        <label class="col-sm-2 control-label">Müşteri Kart No</label>
+        <div class="col-sm-10" style="margin-bottom:20px">
+            @Html.TextBoxFor(model => model.KartNo, new { @class = "form-control", value=Model.KartNo, @readonly = "true" })
+    
+        </div>
+        <label class="col-sm-2 control-label">Toplam Puan</label>
+        <div class="col-sm-10" style="margin-bottom:20px">
+            @Html.TextBoxFor(model => model.Puan, new { @class = "form-control", value = Model.Puan, disabled = "disabled" })
+      
+        </div>
+        <label class="col-sm-2 control-label">Kazanılan İndirim Tutarı</label>
+        <div class="col-sm-10" style="margin-bottom:20px">
+            @Html.TextBoxFor(model => model.AlisverisTutari, new { @class = "form-control", value = Model.AlisverisTutari +"TL", disabled = "disabled" })
+   
+        </div>
+        <label class="col-sm-2 control-label">Kullanılmak istenen İndirim</label>
+        <div class="col-sm-10" style="margin-bottom:20px">
+            @Html.TextBoxFor(model => model.KullanilanIndirim, new { @class = "form-control", placeholder = "İstenilen İndirim Miktarı" })
+        </div>
+        <div class="col-sm-4 col-sm-offset-2">
+            <input class="form-control btn btn-primary" type="submit" value="Puan Harca" />
+        </div>
+    </div>
+    if (ViewBag.Sonuc != null)
+    {
+        <div class="alert alert-@ViewBag.Sonuc">
+            <span class="@ViewBag.Icon"></span>
+            @ViewBag.Mesaj
+
+        </div>
+        
+    }
+}
+
+
+
+
